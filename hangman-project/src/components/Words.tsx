@@ -8,22 +8,21 @@ const Words = () => {
   useEffect(() => {
     const options = {
       method: 'GET',
-      url: 'https://wordsapiv1.p.rapidapi.com/words/',
-      params: {random: 'true'},
+      url: 'https://wordsapiv1.p.mashape.com/words?random=true',
       headers: {
-        'X-RapidAPI-Key': '1f8390f569mshdc074cd5ab3948cp166bf4jsn6ca3378c1957',
-        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+        "X-Mashape-Key": '1f8390f569mshdc074cd5ab3948cp166bf4jsn6ca3378c1957',
+        "Accept": "application/json",
       }
     };
 
-    axios.request(options)
+    axios.get(options.url, { headers: options.headers })
       .then((response) => {
         setWordToGuess(response.data.word);
       })
       .catch((error) => {
         setError('Error fetching word: ' + error.message);
       });
-  }, [wordToGuess]);
+  }, []);
 
   return (
     <div>
