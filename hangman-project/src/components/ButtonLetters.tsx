@@ -1,24 +1,44 @@
-import { Button, Grid, GridItem } from "@chakra-ui/react"
+import { Button, Grid, GridItem, Box, Image } from "@chakra-ui/react"
 
 const ButtonLetters = () => {
 
-    const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 
 
     return (
-        <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"1"}>
+        <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"4"}>
             
           {letters.map((letter) => (
             <Button
-              colorScheme="blue"
-              key={letter}
+              // colorScheme="blue"
+              key={letter.toUpperCase()}
               padding='0'
-              width='50px'
-              height='50px'
+              width='70px'
+              height='70px'
               fontSize='1rem'
+              bg='transparent'
+              border='none'
             >
-              {letter}
+              {/* {letter} */}
+              <Image
+                src="/src/images/slime_noface.png"
+                alt={letter}
+                style={{ width: "100%", height: "100%"}}
+              />
+              <Box
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)", // Adjust the centering
+                  fontSize: "30px",
+                  color: "white"
+                }}
+                className="bubble"
+              >
+                {letter}
+              </Box>
             </Button>
           ))}
         </Grid>

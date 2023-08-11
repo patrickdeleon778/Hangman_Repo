@@ -1,24 +1,35 @@
-// import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 // import words from '../randomTestWords.json'
 // import wordAPI from '../services/wordAPI';
 
 
-// const useWords = () => {
-//     // const [randomWord, setRandomWord] = useState(() => {
-//     //     return words[Math.floor(Math.random() * words.length)]
-//     //   })
+const useWords = () => {
+    // const [randomWord, setRandomWord] = useState(() => {
+    //     return words[Math.floor(Math.random() * words.length)]
+    //   })
 
-//     const [wordToGuess, setWordToGuess] = useState({});
-//     const [error, setError] = useState('');
+    const [randomWord, setRandomWord] = useState('');
 
-//     useEffect(() => {
-//         wordAPI.get('/words/random')
-//         .then((response) => setWordToGuess(() => console.log(response.data)))
-        
-//     }, [])
+    const [error, setError] = useState('');
+
+    const FetchData = () => {
+        axios.get('/src/randomTestWords.json')
+        .then(response => {
+            const words = response.data;
+            setRandomWord(words[Math.floor(Math.random() * words.length)])
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+    }
+
+    useEffect(() => {
+        FetchData();
+    }, [])
     
-//     return {wordToGuess, error};
+    return {randomWord, error};
     
-// }
+}
 
-// export default useWords
+export default useWords
