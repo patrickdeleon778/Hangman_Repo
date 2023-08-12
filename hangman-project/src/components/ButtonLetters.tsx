@@ -1,6 +1,7 @@
 import { Button, Grid, GridItem, Box, Image } from "@chakra-ui/react"
+import ButtonLettersProp from "../models/ButtonLettersProp";
 
-const ButtonLetters = () => {
+const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => {
 
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
@@ -12,6 +13,7 @@ const ButtonLetters = () => {
           {letters.map((letter) => (
             <Button
               // colorScheme="blue"
+              onClick={() => addLetters(letter)}
               key={letter.toUpperCase()}
               padding='0'
               width='70px'

@@ -1,34 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import useWords from "../hooks/useWords";
 import { Box, Text } from '@chakra-ui/react'
+import WordsProp from "../models/wordsProps";
 
-const Words = () => {
+const Words = ( { currentGuessLetter, randomGuessWord }:WordsProp ) => {
 
-const testWord = 'TESTING';
-const guessedLetter = ["a"]
+// const testWord = 'TESTING';
+// const guessedLetter = ["a"]
       
-const {randomWord, error} = useWords();
- 
+const {randomWord, error, totalGuesses, setTotalGuesses } = useWords();
+
+// const wrongLetters = totalGuesses.filter(letter => randomWord.includes(letter))
+
+// const addLetter = useCallback(
+//   (letter: string) => {
+//   if(totalGuesses.includes(letter)) return
+
+//   setTotalGuesses(currentLetter => [...currentLetter, letter])
+// }, [totalGuesses])
+
   return (
     <Box 
       display='flex' 
       textTransform='uppercase'
       fontFamily='bubbleFont'
-      fontSize='50px'
-      gap='5'
+      fontSize='75px'
+      gap='10'
     >
       {randomWord.split('').map((letter, index) => (
-        <Box borderBottom='8px solid black'>
-          <Box 
-            visibility={guessedLetter.includes(letter)
-             ? 'visible' 
-             : 'hidden'
-          }>{letter}</Box>
+        <Box borderBottom='3px solid black' key={index}>
+          <Box visibility={totalGuesses.includes(letter) ? 'visible' : 'hidden'}>
+              {letter}
+          </Box>
         </Box>
       ))}
-      {/* {error && <Text>{error}</Text>}
-      {randomWord && <Text>{randomWord}</Text>} */}
     </Box>
   );
 }

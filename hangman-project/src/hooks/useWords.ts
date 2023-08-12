@@ -13,6 +13,8 @@ const useWords = () => {
 
     const [error, setError] = useState('');
 
+    const [totalGuesses, setTotalGuesses] = useState<string[]>([]);
+
     const FetchData = () => {
         axios.get('/src/randomTestWords.json')
         .then(response => {
@@ -28,7 +30,7 @@ const useWords = () => {
         FetchData();
     }, [])
     
-    return {randomWord, error};
+    return {randomWord, error, totalGuesses, setTotalGuesses};
     
 }
 
