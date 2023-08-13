@@ -9,7 +9,7 @@ const useWords = () => {
     //     return words[Math.floor(Math.random() * words.length)]
     //   })
 
-    const [randomWord, setRandomWord] = useState('');
+    const [randomWord, setRandomWord] = useState<string>('');
 
     const [error, setError] = useState('');
 
@@ -22,7 +22,7 @@ const useWords = () => {
             setRandomWord(words[Math.floor(Math.random() * words.length)])
         })
         .catch(error => {
-            console.log(error.message);
+            setError(error.message);
         })
     }
 
@@ -30,7 +30,7 @@ const useWords = () => {
         FetchData();
     }, [])
     
-    return {randomWord, error, totalGuesses, setTotalGuesses};
+    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData};
     
 }
 
