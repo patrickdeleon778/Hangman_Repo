@@ -52,7 +52,7 @@ const sonicParts = [sonicHead, sonicBody, sonicLeftArm, sonicRightArm, sonicLeft
 
 const HangmanBoard = ( { numberGuesses }:HangmanBoardProps) => {
   return (
-      <Box style={{ position: "relative" }}>
+      <Box style={{ position: "relative", marginBottom:'10px'}}>
         {sonicParts.slice(0, numberGuesses)}
         {/* {sonicHead}
         {sonicBody}
@@ -64,26 +64,30 @@ const HangmanBoard = ( { numberGuesses }:HangmanBoardProps) => {
           style={{
             height: "50px",
             width: "10px",
-            background: "black",
+            background: "gold",
             position: "absolute",
             top: 0,
             right: 190,
+            border: "1px solid blue"
           }}
         />
         <Box
           style={{
             height: "10px",
             width: "250px",
-            background: "black",
+            background: "gold",
             marginLeft: "120px",
+            border: "1px solid blue"
+            
           }}
         />
         <Box
           style={{
             height: "400px",
             width: "10px",
-            background: "black",
+            background: "gold",
             marginLeft: "120px",
+            border: "1px solid blue"
           }}
         />
       </Box>

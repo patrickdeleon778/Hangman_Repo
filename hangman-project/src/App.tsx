@@ -2,13 +2,14 @@ import { useCallback, useEffect } from "react";
 import "./App.css";
 import Words from "./components/Words";
 import ButtonLetters from "./components/ButtonLetters";
-import { Box, Center, Flex } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Text } from "@chakra-ui/react";
 import useWords from "./hooks/useWords";
 import HangmanBoard from "./components/HangmanBoard";
+import Reset from "./components/Reset";
 
 function App() {
 
-  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, youWin, setYouWin, youLose, setYouLose, reset, setReset} = useWords();
+  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, youWin, setYouWin, youLose, setYouLose, reset, setReset, resetGame} = useWords();
 
   console.log(randomWord);
 
@@ -21,53 +22,44 @@ function App() {
   }, [totalGuesses])
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      const key = e.key
-      if (!key.match(/^[a-z]$/)) return
-      e.preventDefault()
-      addLetter(key)
+    if (reset) {
+      resetGame(); // Reset the game when the reset state changes
+      setReset(false); // Reset the reset state
     }
-    document.addEventListener("keypress", handler)
-
-    return () => {
-      document.removeEventListener("keypress", handler)
-    }
-  }, [totalGuesses])
+  }, [reset])
 
   const winner = randomWord.split('').every(letter => totalGuesses.includes(letter));
   const loser = wrongLetters.length >= 6;
   
-  const handleWinner = () => {
-    setYouWin(!youWin);
-  }
-
-  const handleLoser = () => {
-    setYouLose(!youLose);
+  const handleReset = () => {
+    setReset(true)
   }
   
-  const handleReset = () => {
-    setReset(!reset)
-  }
-
   return (
     <Center minHeight="100vh">
       <Box maxWidth="600px" width="100%" px={4}>
-        <Box>
+        <Box
+          
+          >
           <HangmanBoard numberGuesses={wrongLetters.length} />
         </Box>
         <Box display='flex' justifyContent='center' marginBottom='10'>
-          <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses}/>
+          <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses} showLetters={loser}/>
         </Box>
 
-
-
-
         <Box>
-          <ButtonLetters 
-            correct={totalGuesses.filter(letter => randomWord.includes(letter))}
-            inactive={wrongLetters}
-            addLetters={addLetter}
-          />
+          {winner ? 
+              <Reset winner={winner} onReset={handleReset}/>
+            : 
+            loser ? 
+              <Reset winner={winner} onReset={handleReset}/>
+            :
+              <ButtonLetters 
+                correct={totalGuesses.filter(letter => randomWord.includes(letter))}
+                inactive={wrongLetters}
+                addLetters={addLetter}
+              /> }
+            {/* <Reset onClick={handleReset}/> */}
         </Box>
       </Box>
       

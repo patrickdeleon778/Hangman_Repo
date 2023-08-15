@@ -10,7 +10,7 @@ const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) =>
     // }
 
     return (
-      <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"4"}>
+      <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"2"} background='gold' padding='2' marginBottom='4' borderRadius='10' border='4px solid blue'>
         {letters.map((letter) => {
           const isLetterCorrect = correct.includes(letter);
           const isLetterInactive = inactive.includes(letter);

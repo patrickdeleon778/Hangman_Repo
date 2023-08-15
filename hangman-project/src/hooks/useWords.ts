@@ -32,11 +32,21 @@ const useWords = () => {
         })
     }
 
+    const resetGame = () => {
+        setRandomWord("");
+        setError("");
+        setTotalGuesses([]);
+        setYouWin(false);
+        setYouLose(false);
+        setReset(false);
+        FetchData();
+      };
+
     useEffect(() => {
         FetchData();
     }, [])
     
-    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, youWin, setYouWin, youLose, setYouLose, reset, setReset};
+    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, youWin, setYouWin, youLose, setYouLose, reset, setReset, resetGame};
     
 }
 
