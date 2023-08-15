@@ -14,10 +14,6 @@ const Words = ( { currentGuessLetter, randomGuessWord }:WordsProp ) => {
       fontFamily='sonicFont'
       fontSize='75px'
       gap='10'
-      color='gold'
-      style={{
-        WebkitTextStroke: '4px blue',
-      }}
     >
       {randomGuessWord.split('').map((letter, index) => (
         <Box borderBottom='3px solid black' key={index}>

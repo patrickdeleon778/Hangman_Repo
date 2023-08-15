@@ -8,7 +8,7 @@ import HangmanBoard from "./components/HangmanBoard";
 
 function App() {
 
-  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, youWin, setYouWin, youLose, setYouLose, reset, setReset} = useWords();
+  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData } = useWords();
 
   console.log(randomWord);
 
@@ -24,9 +24,11 @@ function App() {
     const handler = (e: KeyboardEvent) => {
       const key = e.key
       if (!key.match(/^[a-z]$/)) return
+
       e.preventDefault()
       addLetter(key)
     }
+
     document.addEventListener("keypress", handler)
 
     return () => {
@@ -34,20 +36,6 @@ function App() {
     }
   }, [totalGuesses])
 
-  const winner = randomWord.split('').every(letter => totalGuesses.includes(letter));
-  const loser = wrongLetters.length >= 6;
-  
-  const handleWinner = () => {
-    setYouWin(!youWin);
-  }
-
-  const handleLoser = () => {
-    setYouLose(!youLose);
-  }
-  
-  const handleReset = () => {
-    setReset(!reset)
-  }
 
   return (
     <Center minHeight="100vh">
@@ -59,9 +47,6 @@ function App() {
           <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses}/>
         </Box>
 
-
-
-
         <Box>
           <ButtonLetters 
             correct={totalGuesses.filter(letter => randomWord.includes(letter))}
@@ -72,7 +57,7 @@ function App() {
       </Box>
       
     </Center>
-  
+
     
   );
 }

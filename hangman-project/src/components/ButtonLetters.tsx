@@ -21,8 +21,8 @@ const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) =>
               disabled={isLetterInactive}
               key={letter.toUpperCase()}
               padding="0"
-              width="60px"
-              height="60px"
+              width="70px"
+              height="70px"
               fontSize="1rem"
               border="none"
               background='transparent'
