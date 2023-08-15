@@ -1,8 +1,8 @@
 @font-face {
-    font-family: 'bubbleFont';
-    src: url('/src/font/HeroFest-RpjZe.otf');
+    font-family: 'sonicFont';
+    src: url('/src/font/NiseSegaSonic.TTF');
 }
 
 .bubble{
-    font-family: 'bubbleFont';
+    font-family: 'sonicFont';
 }

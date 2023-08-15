@@ -11,7 +11,7 @@ const Words = ( { currentGuessLetter, randomGuessWord }:WordsProp ) => {
     <Box 
       display='flex' 
       textTransform='uppercase'
-      fontFamily='bubbleFont'
+      fontFamily='sonicFont'
       fontSize='75px'
       gap='10'
     >

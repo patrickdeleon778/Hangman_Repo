@@ -22,9 +22,10 @@ const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => 
               height="70px"
               fontSize="1rem"
               border="none"
+              background='transparent'
             >
               <Image
-                src="/src/images/slime_noface.png"
+                src="/src/images/Sonic_ring.png"
                 alt={letter}
                 style={{ width: "100%", height: "100%" }}
               />
@@ -35,7 +36,7 @@ const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => 
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   fontSize: "30px",
-                  color: "white",
+                  color: "black",
                 }}
                 className="bubble"
               >
