@@ -1,21 +1,24 @@
 import { Button, Grid, GridItem, Box, Image } from "@chakra-ui/react"
 import ButtonLettersProp from "../models/ButtonLettersProp";
 
-const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => {
+const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) => {
 
     const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-
+    // const handleButtonClick = (letter) => {
+    //   addLetters
+    // }
 
     return (
       <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"4"}>
         {letters.map((letter) => {
-          const isLetterActive = active.includes(letter);
-          const isLetterInactive = active.includes(letter);
+          const isLetterCorrect = correct.includes(letter);
+          const isLetterInactive = inactive.includes(letter);
 
           return (
             <Button
               onClick={() => addLetters(letter)}
+              disabled={isLetterInactive}
               key={letter.toUpperCase()}
               padding="0"
               width="70px"
@@ -24,11 +27,16 @@ const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => 
               border="none"
               background='transparent'
             >
-              <Image
+              {isLetterInactive ? <Image src="/src/images/sonic_dead-removebg-preview.png" alt={letter}style={{ width: "100%", height: "100%"}}/> : 
+              isLetterCorrect ? <Image src="/src/images/sonic_win.png" alt={letter}style={{ width: "100%", height: "100%"}}/> :
+              <Image src="/src/images/Sonic_ring.png" alt={letter}style={{ width: "100%", height: "100%" }}/> }
+
+
+              {/* <Image
                 src="/src/images/Sonic_ring.png"
                 alt={letter}
                 style={{ width: "100%", height: "100%" }}
-              />
+              /> */}
               <Box
                 style={{
                   position: "absolute",
@@ -36,7 +44,8 @@ const ButtonLetters = ( { active, inactive, addLetters }:ButtonLettersProp ) => 
                   left: "50%",
                   transform: "translate(-50%, -50%)",
                   fontSize: "30px",
-                  color: "black",
+                  color: isLetterInactive ? 'red' :
+                         isLetterCorrect ? 'green' : 'black',
                 }}
                 className="bubble"
               >

@@ -12,9 +12,9 @@ function App() {
 
   console.log(randomWord);
 
-  const wrongLetters = totalGuesses.filter(letter => randomWord.includes(letter))
+  const wrongLetters = totalGuesses.filter(letter => !randomWord.includes(letter))
 
-  const addLetter = useCallback((letter: string) => { debugger
+  const addLetter = useCallback((letter: string) => {
     if(totalGuesses.includes(letter)) return;
 
     setTotalGuesses((currentLetter) => [...currentLetter, letter])
@@ -41,7 +41,7 @@ function App() {
     <Center minHeight="100vh">
       <Box maxWidth="600px" width="100%" px={4}>
         <Box>
-          <HangmanBoard />
+          <HangmanBoard numberGuesses={wrongLetters.length} />
         </Box>
         <Box display='flex' justifyContent='center' marginBottom='10'>
           <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses}/>
@@ -49,13 +49,16 @@ function App() {
 
         <Box>
           <ButtonLetters 
-            active={totalGuesses.filter(letter => randomWord.includes(letter))}
+            correct={totalGuesses.filter(letter => randomWord.includes(letter))}
             inactive={wrongLetters}
             addLetters={addLetter}
           />
         </Box>
       </Box>
+      
     </Center>
+
+    
   );
 }
 

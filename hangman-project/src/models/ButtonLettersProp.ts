@@ -1,5 +1,5 @@
 export default interface ButtonLettersProp {
-    active: string[]
+    correct: string[]
     inactive: string[]
     addLetters: (letter: string) => void
 }
