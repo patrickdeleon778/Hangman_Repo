@@ -19,7 +19,7 @@ const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) =>
 
           return (
             <Button
-              onClick={() => {addLetters(letter); playBoing()}}
+              onClick={() => {addLetters(letter); playBoing();}}
               disabled={isLetterInactive}
               key={letter.toUpperCase()}
               padding="0"
