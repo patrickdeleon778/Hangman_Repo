@@ -19,6 +19,8 @@ const useWords = () => {
 
     const [play, setPlay] = useState(false)
 
+    const [deadCount, setDeadCount] = useState(0);
+
     const FetchData = () => {
         axios.get('/src/randomTestWords.json')
         .then(response => {
@@ -47,7 +49,7 @@ const useWords = () => {
         FetchData();
     }, [])
     
-    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, reset, setReset, resetGame, play, setPlay, handlePlay};
+    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount};
     
 }
 

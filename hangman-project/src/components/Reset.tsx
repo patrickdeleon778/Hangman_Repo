@@ -1,8 +1,12 @@
 import { Box, Button, Text, Image } from "@chakra-ui/react";
-import React from "react";
 import ResetProps from "../models/ResetProps";
 
 const Reset = ( {onReset, winner}:ResetProps ) => {
+
+    // const {deadCount, setDeadCount} = useWords();
+
+    
+
   return (
     <Box
       display="flex"

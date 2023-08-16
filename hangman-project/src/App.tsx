@@ -12,11 +12,11 @@ import SonicLoseSound from "./components/SonicLoseSound";
 
 function App() {
 
-  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay} = useWords();
+  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount} = useWords();
 
   console.log(randomWord);
 
-  const wrongLetters = totalGuesses.filter(letter => !randomWord.includes(letter))
+  const wrongLetters = totalGuesses.filter(letter => !randomWord.includes(letter)) // filters through each letter of the random word and check if it's not equal
 
   const addLetter = useCallback((letter: string) => {
     if(totalGuesses.includes(letter)) return;
@@ -37,6 +37,15 @@ function App() {
   const handleReset = () => {
     setReset(true)
   }
+
+  useEffect(() => {
+
+    loser && setDeadCount(value => value + 1);
+  
+  }, [loser])
+  
+  
+  console.log(deadCount)
   
   return (
     
@@ -48,6 +57,20 @@ function App() {
           <Image src="/src/images/Sonic_The_Hedgehog.png"/>
         </Box>
         <Box m="100">
+        {deadCount === 3 &&
+        <>
+          <Box position='absolute' right='900' top='670'>
+            <Image boxSize='100px' src='/src/images/sanic.png'/>
+          </Box>
+          <Box position='absolute' right='100' top='660'>
+            <Image boxSize='200px' src='/src/images/sign on a stick.png'/>
+            <Image height='103px' width='192px' position='absolute' right='1' top='0' src='/src/images/eggman.png'/>
+          </Box>
+          {/* <Box position='absolute' right='505' top='503'>
+            <Image height='100px' width='190px' src='/src/images/eggman.png'/>
+          </Box> */}
+        </>
+          }
             <Button
               onClick={handlePlay}
               width="200px"
@@ -73,7 +96,7 @@ function App() {
         {winner ? null : <SonicBgm/>}
         <Box maxWidth="600px" width="100%" px={4}>
           <Box>
-            <HangmanBoard numberGuesses={wrongLetters.length} />
+            <HangmanBoard numberGuesses={wrongLetters.length} deathCounter={deadCount} isPlay={play}/>
           </Box>
           <Box display='flex' justifyContent='center' marginBottom='10'>
             <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses} showLetters={loser}

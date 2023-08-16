@@ -47,7 +47,7 @@ const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) =>
                   transform: "translate(-50%, -50%)",
                   fontSize: "30px",
                   color: isLetterInactive ? 'red' :
-                         isLetterCorrect ? 'green' : 'black',
+                         isLetterCorrect ? 'green' : 'goldenrod',
                 }}
                 className="bubble"
               >
