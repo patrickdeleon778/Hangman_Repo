@@ -1,13 +1,15 @@
 import { Button, Grid, GridItem, Box, Image } from "@chakra-ui/react"
 import ButtonLettersProp from "../models/ButtonLettersProp";
+import boing from '../audio/boing.mp3'
 
 const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) => {
 
     const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-    // const handleButtonClick = (letter) => {
-    //   addLetters
-    // }
+    const playBoing = () => { // function for the sound effect when you press a square
+          const sound = new Audio(boing);
+          sound.play();
+  }  
 
     return (
       <Grid templateColumns="repeat(auto-fit, minmax(50px, 1fr))" gap={"2"} background='gold' padding='2' marginBottom='4' borderRadius='10' border='4px solid blue'>
@@ -17,7 +19,7 @@ const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) =>
 
           return (
             <Button
-              onClick={() => addLetters(letter)}
+              onClick={() => {addLetters(letter); playBoing()}}
               disabled={isLetterInactive}
               key={letter.toUpperCase()}
               padding="0"

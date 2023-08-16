@@ -14,14 +14,37 @@
     background-size: cover;
 }
 
-.Text:before {
+/*  THIS STUFF BELOW IS RANDOM CHAT GPT CSS STUFF I FOUND  */
+
+.sonicButt {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00A6F0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sonicButt:before {
     content: "";
     position: absolute;
+    top: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent, transparent 60%, white 70%, gold);
-    mix-blend-mode: difference;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: moveGradient 2s linear infinite;
+  }
+  
+  @keyframes moveGradient {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
   }

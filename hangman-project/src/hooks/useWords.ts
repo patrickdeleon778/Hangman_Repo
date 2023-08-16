@@ -15,11 +15,9 @@ const useWords = () => {
 
     const [totalGuesses, setTotalGuesses] = useState<string[]>([]);
 
-    const [youWin, setYouWin] = useState(false);
-
-    const [youLose, setYouLose] = useState(false);
-
     const [reset, setReset] = useState(false);
+
+    const [play, setPlay] = useState(false)
 
     const FetchData = () => {
         axios.get('/src/randomTestWords.json')
@@ -36,17 +34,20 @@ const useWords = () => {
         setRandomWord("");
         setError("");
         setTotalGuesses([]);
-        setYouWin(false);
-        setYouLose(false);
         setReset(false);
         FetchData();
+        setPlay(false);
       };
+
+    const handlePlay = () => {
+        setPlay(true);
+    }
 
     useEffect(() => {
         FetchData();
     }, [])
     
-    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, youWin, setYouWin, youLose, setYouLose, reset, setReset, resetGame};
+    return {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, FetchData, reset, setReset, resetGame, play, setPlay, handlePlay};
     
 }
 

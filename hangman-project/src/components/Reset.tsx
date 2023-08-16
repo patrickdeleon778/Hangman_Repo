@@ -20,6 +20,8 @@ const Reset = ( {onReset, winner}:ResetProps ) => {
             margin='0'
             borderRadius='10px'
             border='2px solid blue'
+            px='2'
+            pt='1'
             style={{
                 WebkitTextStroke: '2px blue',
             }}
