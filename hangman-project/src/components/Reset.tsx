@@ -30,7 +30,7 @@ const Reset = ( {onReset, winner}:ResetProps ) => {
                 WebkitTextStroke: '2px blue',
             }}
         >
-            {winner ? "YOU WIN! GOOD JOB!" : "YOU LOST! YOU SUCK!"}</Text>
+            {winner ? "YOU WIN! GOOD JOB!" : "YOU LOST! YOU SUCK!"}</Text> 
       <Button onClick={onReset} width='100px' height='70px' bg='gold' border='2px solid blue'>
         <Image src="/src/images/uganda.png" style={{ width: "100%", height: "100%" }}/>
       </Button>
