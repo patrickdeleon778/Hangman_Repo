@@ -81,20 +81,28 @@ const sonicParts = [sonicHead, sonicBody, sonicLeftArm, sonicRightArm, sonicLeft
 
 
 
-const HangmanBoard = ( { numberGuesses, deathCounter, isPlay }:HangmanBoardProps) => {
+const HangmanBoard = ( { numberGuesses, deathCounter, isLoser, winnerCounter, isWinner }:HangmanBoardProps) => {
   
 
   return (
       <Box style={{ position: "relative", marginBottom:'10px'}}>
-        {deathCounter === 1 ? 
-          <Box position='absolute' right='49' top='39'>
-            <Image boxSize='300px' src='/src/images/coffin.png'/>
-          </Box> :
-          deathCounter === 3 ? 
+        {deathCounter === 2 && isLoser ? 
           <Box position='absolute' right='150' top='39'>
             <Image boxSize='100px' src='/src/images/sonic ded.png'/>
           </Box>
-          
+          : deathCounter >= 3 && isLoser ? 
+            <Box position='absolute' right='49' top='39'>
+              <Image boxSize='300px' src='/src/images/coffin.png'/>
+            </Box>
+          : winnerCounter === 2 && isWinner ? 
+            <Box position='absolute' right='49' top='39'>
+              <Image boxSize='300px' src='/src/images/dancing sonic.gif'/>
+            </Box>
+          : winnerCounter >= 3 && isWinner ? 
+            <Box position='absolute' right='49' top='39'>
+              <Image boxSize='300px' src='/src/images/coffin.png'/>
+            </Box>
+
           : sonicParts.slice(0, numberGuesses)}
         {/* {sonicParts.slice(0, numberGuesses)} */}
         {/* {sonicHead}

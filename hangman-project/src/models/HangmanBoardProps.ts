@@ -1,5 +1,7 @@
 export default interface HangmanBoardProps {
     numberGuesses: number
+    winnerCounter: number
     deathCounter: number
-    isPlay: boolean
+    isLoser: boolean
+    isWinner: boolean
 }

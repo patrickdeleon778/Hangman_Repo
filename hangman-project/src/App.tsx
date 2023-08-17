@@ -6,13 +6,15 @@ import { Box, Button, Center, Flex, Text, Image } from "@chakra-ui/react";
 import useWords from "./hooks/useWords";
 import HangmanBoard from "./components/HangmanBoard";
 import Reset from "./components/Reset";
-import SonicBgm from "./components/SonicBgm";
-import SonicWinSound from "./components/SonicWinSound";
-import SonicLoseSound from "./components/SonicLoseSound";
+import SonicBgm from "./components/AudioComponents/SonicBgm";
+import SonicWinSound from "./components/AudioComponents/SonicWinSound";
+import SonicLoseSound from "./components/AudioComponents/SonicLoseSound";
+import Oof from "./components/AudioComponents/Oof";
+import DancingSong from "./components/AudioComponents/DancingSong";
 
 function App() {
 
-  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount} = useWords();
+  const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount, winCount, setWinCount} = useWords();
 
   console.log(randomWord);
 
@@ -38,14 +40,23 @@ function App() {
     setReset(true)
   }
 
+
+  useEffect(() => {
+
+    winner && setWinCount(value => value + 1);
+  
+  }, [winner])
+
+
   useEffect(() => {
 
     loser && setDeadCount(value => value + 1);
+    setWinCount(0);
   
   }, [loser])
   
-  
-  console.log(deadCount)
+  console.log(winCount);
+  console.log(deadCount);
   
   return (
     
@@ -53,8 +64,8 @@ function App() {
       
       {!play ? (
       <Box display='flex' flexDir='column' alignItems='center'>
-        <Box m='100'>
-          <Image src="/src/images/Sonic_The_Hedgehog.png"/>
+        <Box m='100' display='flex' justifyContent='center'>
+          <Image src="/src/images/Sonic_The_Hedgehog.png" m={0} boxSize={{ base: "100%", md: "75%", }} objectFit="cover"/>
         </Box>
         <Box m="100">
         {deadCount === 3 &&
@@ -69,8 +80,7 @@ function App() {
           {/* <Box position='absolute' right='505' top='503'>
             <Image height='100px' width='190px' src='/src/images/eggman.png'/>
           </Box> */}
-        </>
-          }
+        </> }
             <Button
               onClick={handlePlay}
               width="200px"
@@ -96,7 +106,7 @@ function App() {
         {winner ? null : <SonicBgm/>}
         <Box maxWidth="600px" width="100%" px={4}>
           <Box>
-            <HangmanBoard numberGuesses={wrongLetters.length} deathCounter={deadCount} isPlay={play}/>
+            <HangmanBoard numberGuesses={wrongLetters.length} deathCounter={deadCount} isLoser={loser} winnerCounter={winCount} isWinner={winner}/>
           </Box>
           <Box display='flex' justifyContent='center' marginBottom='10'>
             <Words randomGuessWord={randomWord} currentGuessLetter={totalGuesses} showLetters={loser}
@@ -106,13 +116,13 @@ function App() {
         <Box>
           {winner ? 
             <>
-              <SonicWinSound/>
-              {!play}
+              {winCount === 2 ? <DancingSong/> : <SonicWinSound/>}
               <Reset winner={winner} onReset={handleReset}/>
             </>
             : 
             loser ? 
             <>
+              <Oof/>
               <SonicLoseSound/>
               <Reset winner={winner} onReset={handleReset}/>
             </>
