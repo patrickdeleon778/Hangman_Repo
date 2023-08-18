@@ -94,13 +94,9 @@ const HangmanBoard = ( { numberGuesses, deathCounter, isLoser, winnerCounter, is
             <Box position='absolute' right='49' top='39'>
               <Image boxSize='300px' src='/src/images/coffin.png'/>
             </Box>
-          : winnerCounter === 2 && isWinner ? 
+          : winnerCounter >= 2 && isWinner ? 
             <Box position='absolute' right='49' top='39'>
               <Image boxSize='300px' src='/src/images/dancing sonic.gif'/>
-            </Box>
-          : winnerCounter >= 3 && isWinner ? 
-            <Box position='absolute' right='49' top='39'>
-              <Image boxSize='300px' src='/src/images/coffin.png'/>
             </Box>
 
           : sonicParts.slice(0, numberGuesses)}
