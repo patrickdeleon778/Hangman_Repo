@@ -18,6 +18,8 @@ import sanic from "../src/images/sanic.png";
 import sonicRing from "../images/Sonic_ring.png";
 import signStick from "../src/images/sign_on_a_stick.png";
 
+// Test
+
 function App() {
 
   const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount, winCount, setWinCount} = useWords();
