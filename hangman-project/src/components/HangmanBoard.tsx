@@ -3,20 +3,16 @@ import React from 'react'
 import HangmanBoardProps from '../models/HangmanBoardProps';
 import useWords from '../hooks/useWords';
 
-import head from "../images/sonic head.png";
-import body from "../images/sonic tpose body (1).png";
-import leftArm from "../images/sonic tpose left arm (1).png";
-import rightArm from "../images/sonic tpose right arm (1).png";
-import leftLeg from "../images/sonic tpose left leg (1).png";
-import rightLeg from "../images/sonic tpose right leg (1).png";
+import head from "../images/sonic_head.png";
+import body from "../images/sonic_tpose_body.png";
+import leftArm from "../images/sonic_tpose_left_arm.png";
+import rightArm from "../images/sonic_tpose_right_arm.png";
+import leftLeg from "../images/sonic_tpose_left_leg.png";
+import rightLeg from "../images/sonic_tpose_right_leg.png";
 
-import sonicDed from "../images/sonic ded.png";
-import sonicDance from "../images/dancing sonic.gif";
+import sonicDed from "../images/sonic_ded.png";
+import sonicDance from "../images/dancing_sonic.gif";
 import coffin from "../images/coffin.png";
-import eggman from "../images/eggman.png";
-import sanic from "../images/sanic.png";
-import signStick from "../images/sign on a stick.png";
-import sonicWin from "../images/sonic_win.png";
 
 
 

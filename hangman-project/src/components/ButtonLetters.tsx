@@ -2,10 +2,6 @@ import { Button, Grid, GridItem, Box, Image } from "@chakra-ui/react"
 import ButtonLettersProp from "../models/ButtonLettersProp";
 import boing from '../audio/boing.mp3'
 
-import eggman from "../images/eggman.png";
-import sanic from "../images/sanic.png";
-import sonicRing from "../images/Sonic_ring.png";
-import signStick from "../images/sign on a stick.png";
 import ring from "../images/Sonic_ring.png";
 import sonicWin from "../images/sonic_win.png";
 import sonicDEAD from "../images/sonic_dead-removebg-preview.png";
