@@ -1,10 +1,11 @@
 import React from 'react'
+import lose from '../AudioComponents/sonic lose sound.mp3';
 
 const SonicLoseSound = () => {
   return (
     <>
       <audio autoPlay>
-        <source src="/src/audio/sonic lose sound.mp3" type="audio/mpeg" />
+        <source src={lose} type="audio/mpeg" />
       </audio>
     </>
   )

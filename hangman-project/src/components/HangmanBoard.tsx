@@ -3,6 +3,22 @@ import React from 'react'
 import HangmanBoardProps from '../models/HangmanBoardProps';
 import useWords from '../hooks/useWords';
 
+import head from "../images/sonic head.png";
+import body from "../images/sonic tpose body (1).png";
+import leftArm from "../images/sonic tpose left arm (1).png";
+import rightArm from "../images/sonic tpose right arm (1).png";
+import leftLeg from "../images/sonic tpose left leg (1).png";
+import rightLeg from "../images/sonic tpose right leg (1).png";
+
+import sonicDed from "../images/sonic ded.png";
+import sonicDance from "../images/dancing sonic.gif";
+import coffin from "../images/coffin.png";
+import eggman from "../images/eggman.png";
+import sanic from "../images/sanic.png";
+import signStick from "../images/sign on a stick.png";
+import sonicWin from "../images/sonic_win.png";
+
+
 
 
 // const sonic = (
@@ -17,32 +33,32 @@ import useWords from '../hooks/useWords';
 // )
 const sonicHead = (
   <Box position='absolute' right='145' top='39'>
-    <Image boxSize='100px'src='/src/images/sonic head.png'/>
+    <Image boxSize='100px'src={head}/>
   </Box>
 )
 const sonicBody = (
   <Box position='absolute' right='155' top='138'>
-    <Image width='90px' margin='0' style={{ position: 'relative', right: '-5px', top: '-2px' }} src='/src/images/sonic tpose body (1).png'/>
+    <Image width='90px' margin='0' style={{ position: 'relative', right: '-5px', top: '-2px' }} src={body}/>
   </Box>
 )
 const sonicLeftArm = (
   <Box position='absolute' right='105' top='185'>
-    <Image width='140px' style={{ position: 'relative', top: '-93px', left: '-105px'}} src='/src/images/sonic tpose left arm (1).png'/>
+    <Image width='140px' style={{ position: 'relative', top: '-93px', left: '-105px'}} src={leftArm}/>
   </Box>
 )
 const sonicRightArm = (
   <Box position='absolute' right='105' top='275'>
-    <Image width='140px' style={{ position: 'relative', top: '-183px', left: '63px'}} src='/src/images/sonic tpose right arm (1).png'/>
+    <Image width='140px' style={{ position: 'relative', top: '-183px', left: '63px'}} src={rightArm}/>
   </Box>
 )
 const sonicLeftLeg = (
   <Box position='absolute' right='195' top='367'>
-    <Image width='50px' style={{ position: 'relative', top: '-185px', left: '-2px'}} height='100' src='/src/images/sonic tpose left leg (1).png'/>
+    <Image width='50px' style={{ position: 'relative', top: '-185px', left: '-2px'}} height='100' src={leftLeg}/>
   </Box>
 )
 const sonicRightLeg = (
   <Box position='absolute' right='195' top='466'>
-    <Image width='50px' style={{ position: 'relative', top: '-285px', left: '50px'}} height='100' src='/src/images/sonic tpose right leg (1).png'/>
+    <Image width='50px' style={{ position: 'relative', top: '-285px', left: '50px'}} height='100' src={rightLeg}/>
   </Box>
 )
 
@@ -88,15 +104,15 @@ const HangmanBoard = ( { numberGuesses, deathCounter, isLoser, winnerCounter, is
       <Box style={{ position: "relative", marginBottom:'10px'}}>
         {deathCounter === 2 && isLoser ? 
           <Box position='absolute' right='150' top='39'>
-            <Image boxSize='100px' src='/src/images/sonic ded.png'/>
+            <Image boxSize='100px' src={sonicDed}/>
           </Box>
           : deathCounter >= 3 && isLoser ? 
             <Box position='absolute' right='49' top='39'>
-              <Image boxSize='300px' src='/src/images/coffin.png'/>
+              <Image boxSize='300px' src={coffin}/>
             </Box>
           : winnerCounter >= 2 && isWinner ? 
             <Box position='absolute' right='49' top='39'>
-              <Image boxSize='300px' src='/src/images/dancing sonic.gif'/>
+              <Image boxSize='300px' src={sonicDance}/>
             </Box>
 
           : sonicParts.slice(0, numberGuesses)}

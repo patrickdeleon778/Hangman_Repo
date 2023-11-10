@@ -1,10 +1,11 @@
 import React from 'react'
+import oof from '../AudioComponents/Roblox OOF Sound Effect - Bass Boosted-[AudioTrimmer.com].mp3';
 
 const Oof = () => {
   return (
     <>
       <audio autoPlay>
-        <source src="/src/audio/Roblox OOF Sound Effect - Bass Boosted-[AudioTrimmer.com].mp3" type="audio/mpeg" />
+        <source src={oof} type="audio/mpeg" />
       </audio>
     </>
   )

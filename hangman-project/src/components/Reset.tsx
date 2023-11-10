@@ -1,6 +1,8 @@
 import { Box, Button, Text, Image } from "@chakra-ui/react";
 import ResetProps from "../models/ResetProps";
 
+import uganda from '../images/uganda.png';
+
 const Reset = ( {onReset, winner}:ResetProps ) => {
 
     // const {deadCount, setDeadCount} = useWords();
@@ -32,7 +34,7 @@ const Reset = ( {onReset, winner}:ResetProps ) => {
         >
             {winner ? "YOU WIN! GOOD JOB!" : "YOU LOST! YOU SUCK!"}</Text> 
       <Button onClick={onReset} width='100px' height='70px' bg='gold' border='2px solid blue'>
-        <Image src="/src/images/uganda.png" style={{ width: "100%", height: "100%" }}/>
+        <Image src={uganda} style={{ width: "100%", height: "100%" }}/>
       </Button>
     </Box>
   );

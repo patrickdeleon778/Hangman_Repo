@@ -12,6 +12,12 @@ import SonicLoseSound from "./components/AudioComponents/SonicLoseSound";
 import Oof from "./components/AudioComponents/Oof";
 import DancingSong from "./components/AudioComponents/DancingSong";
 
+import eggman from "../src/images/eggman.png";
+import sonic from "../src/images/Sonic_The_Hedgehog.png";
+import sanic from "../src/images/sanic.png";
+import sonicRing from "../images/Sonic_ring.png";
+import signStick from "../src/images/sign on a stick.png";
+
 function App() {
 
   const {randomWord, error, totalGuesses, setTotalGuesses, setRandomWord, reset, setReset, resetGame, play, setPlay, handlePlay, deadCount, setDeadCount, winCount, setWinCount} = useWords();
@@ -65,17 +71,17 @@ function App() {
       {!play ? (
       <Box display='flex' flexDir='column' alignItems='center'>
         <Box m='100' display='flex' justifyContent='center'>
-          <Image src="/src/images/Sonic_The_Hedgehog.png" m={0} boxSize={{ base: "100%", md: "75%", }} objectFit="cover"/>
+          <Image src={sonic} m={0} boxSize={{ base: "100%", md: "75%", }} objectFit="cover"/>
         </Box>
         <Box m="100">
         {deadCount === 3 &&
         <>
           <Box position='absolute' right='900' top='670'>
-            <Image boxSize='100px' src='/src/images/sanic.png'/>
+            <Image boxSize='100px' src={sanic}/>
           </Box>
           <Box position='absolute' right='100' top='660'>
-            <Image boxSize='200px' src='/src/images/sign on a stick.png'/>
-            <Image height='103px' width='192px' position='absolute' right='1' top='0' src='/src/images/eggman.png'/>
+            <Image boxSize='200px' src={signStick}/>
+            <Image height='103px' width='192px' position='absolute' right='1' top='0' src={eggman}/>
           </Box>
           {/* <Box position='absolute' right='505' top='503'>
             <Image height='100px' width='190px' src='/src/images/eggman.png'/>
