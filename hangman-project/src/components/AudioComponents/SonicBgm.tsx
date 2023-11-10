@@ -1,5 +1,5 @@
 import React from 'react'
-import BGM from '../AudioComponents/Sonic The Hedgehog OST Green Hill Zone.mp3';
+import BGM from '../AudioComponents/Sonic_The_Hedgehog_OST_Green_Hill_Zone.mp3';
 
 const SonicBgm = () => {
   return (

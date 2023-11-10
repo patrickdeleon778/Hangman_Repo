@@ -1,5 +1,5 @@
 import React from 'react'
-import lose from '../AudioComponents/sonic lose sound.mp3';
+import lose from '../AudioComponents/sonic_lose_sound.mp3';
 
 const SonicLoseSound = () => {
   return (

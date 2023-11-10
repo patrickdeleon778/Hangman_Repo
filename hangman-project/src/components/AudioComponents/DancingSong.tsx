@@ -1,5 +1,5 @@
 import React from 'react'
-import boosted from '../AudioComponents/FORTNITE DEFAULT DANCE BASS BOOSTED.mp3'
+import boosted from '../AudioComponents/FORTNITE_DEFAULT_DANCE_BASS_BOOSTED.mp3'
 
 const DancingSong = () => {
   return (

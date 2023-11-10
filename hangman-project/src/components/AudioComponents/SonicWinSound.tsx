@@ -1,5 +1,5 @@
 import React from 'react'
-import win from '../AudioComponents/sonic win sound.mp3'
+import win from '../AudioComponents/sonic_win_sound.mp3'
 
 const SonicWinSound = () => {
   return (
