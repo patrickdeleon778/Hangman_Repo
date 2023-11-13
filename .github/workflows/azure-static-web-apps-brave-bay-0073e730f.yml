@@ -22,7 +22,7 @@ jobs:
       - name: List Project Directory Contents
         run: |
           ls -R
-          cat randomTestWords.json
+          cat src/randomTestWords.json
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
