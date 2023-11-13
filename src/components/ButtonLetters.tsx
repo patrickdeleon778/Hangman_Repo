@@ -5,6 +5,7 @@ import boing from '../audio/boing.mp3'
 import ring from "../images/Sonic_ring.png";
 import sonicWin from "../images/sonic_win.png";
 import sonicDEAD from "../images/sonic_dead-removebg-preview.png";
+// Test
 
 const ButtonLetters = ( { correct, inactive, addLetters }:ButtonLettersProp ) => {
 
