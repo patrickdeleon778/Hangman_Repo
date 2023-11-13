@@ -15,7 +15,6 @@ import DancingSong from "./components/AudioComponents/DancingSong";
 import eggman from "../src/images/eggman.png";
 import sonic from "../src/images/Sonic_The_Hedgehog.png";
 import sanic from "../src/images/sanic.png";
-import sonicRing from "../images/Sonic_ring.png";
 import signStick from "../src/images/sign_on_a_stick.png";
 
 // Test
