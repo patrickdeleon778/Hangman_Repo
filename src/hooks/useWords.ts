@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 // import words from '../randomTestWords.json'
 // import wordAPI from '../services/wordAPI';
+// import wordData from '../randomTestWords.json';
 
 
 const useWords = () => {
@@ -24,7 +25,7 @@ const useWords = () => {
     const [winCount, setWinCount] = useState(0); // win count to count how many times you win
 
     const FetchData = () => { // using axios to simulate fetching data from an api but it's just fetching from the .json file instead
-        axios.get('randomTestWords.json') 
+        axios.get('/public/randomTestWords.json') 
         .then(response => {
             const words = response.data; // sets response.data to the variable 'words'
             setRandomWord(words[Math.floor(Math.random() * words.length)]) // sets a random word from the .json file
